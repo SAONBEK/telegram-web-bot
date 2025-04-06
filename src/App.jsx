@@ -53,7 +53,7 @@ const App = () => {
   };
 
   const onSendData = useCallback(() => {
-    const quaryId = telegram.initDataUnsave?.query_id;
+    const quaryId = telegram.initDataUnsafe?.query_id;
 
     if (quaryId) {
       fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/'),{

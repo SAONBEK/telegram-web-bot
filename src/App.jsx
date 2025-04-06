@@ -56,7 +56,7 @@ const App = () => {
     const quaryID = telegram.initDataUnsafe?.query_id;
 
     if (quaryID) {
-      fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/'),{
+      fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/web-data'),{
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',

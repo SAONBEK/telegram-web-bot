@@ -53,15 +53,15 @@ const App = () => {
   };
 
   const onSendData = useCallback(() => {
-    const quaryId = telegram.initDataUnsafe?.query_id;
+    const quaryID = telegram.initDataUnsafe?.query_id;
 
-    if (quaryId) {
+    if (quaryID) {
       fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/'),{
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',
         },
-        body: JSON.stringify({products: cartItems, quaryId:quaryId})
+        body: JSON.stringify({products: cartItems, quaryID:quaryID})
       }
     } else {
       telegram.sendData(JSON.stringify(cartItems));

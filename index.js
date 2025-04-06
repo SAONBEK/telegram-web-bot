@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const bootstrap = () => {
+
   bot.setMyCommands([
     { command: "/start", description: "Kurslar haqida ma'lumot" },
     { command: "/courses", description: "Barcha kurslar" },
@@ -90,9 +90,7 @@ const bootstrap = () => {
       }
     }
   });
-};
 
-bootstrap();
 
 app.post('/web-data', async (req, res) => {
 	const { queryID, products } = req.body;

@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     telegram.ready();
-  });
+  } , []);
 
   const onAddItem = (item) => {
     const exitItem = cartItems.find((c) => c.id == item.id);
@@ -53,21 +53,19 @@ const App = () => {
   };
 
   const onSendData = useCallback(() => {
-    const quaryID = telegram.initDataUnsafe?.query_id;
+    const queryID = telegram.initDataUnsafe?.query_id;
 
-    if (quaryID) {
-      fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/web-data'),{
+    if (queryID) {
+      fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/web-data', {
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',
-        },
-        body: JSON.stringify({products: cartItems, quaryID:quaryID})
-      }
+      },
+        body: JSON.stringify({products: cartItems, queryID:queryID})
+      });
     } else {
       telegram.sendData(JSON.stringify(cartItems));
     }
-
-    telegram.sendData(JSON.stringify(cartItems));
   }, [cartItems]);
 
   useEffect(() => {

@@ -53,6 +53,20 @@ const App = () => {
   };
 
   const onSendData = useCallback(() => {
+    const quaryId = telegram.initDataUnsave?.query_id;
+
+    if (quaryId) {
+      fetch ("https://localhost:8000/web-data"),{
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(cartItems)
+      }
+    } else {
+      telegram.sendData(JSON.stringify(cartItems));
+    }
+
     telegram.sendData(JSON.stringify(cartItems));
   }, [cartItems]);
 

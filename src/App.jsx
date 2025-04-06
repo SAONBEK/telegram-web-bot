@@ -56,7 +56,7 @@ const App = () => {
     const quaryId = telegram.initDataUnsave?.query_id;
 
     if (quaryId) {
-      fetch ("https://localhost:8000/web-data"),{
+      fetch ('https://saonbektelegramwebbot-5ce4c6cd850f.herokuapp.com/'),{
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',
